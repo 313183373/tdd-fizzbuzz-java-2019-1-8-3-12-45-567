@@ -17,4 +17,9 @@ class FizzBuzzWhizzTest {
     void should_return_input_number_when_input_is_not_a_special_number() {
         assertEquals("4", fizzBuzzWhizz.fizzBuzzWhizz(4));
     }
+
+    @Test
+    void should_return_fizz_when_input_is_multiple_of_three() {
+        assertEquals("Fizz", fizzBuzzWhizz.fizzBuzzWhizz(3));
+    }
 }
