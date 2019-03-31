@@ -42,4 +42,9 @@ class FizzBuzzWhizzTest {
     void should_return_fizzwhizz_when_input_is_multiple_of_three_and_seven() {
         assertEquals("FizzWhizz", fizzBuzzWhizz.fizzBuzzWhizz(21));
     }
+
+    @Test
+    void should_return_buzzwhizz_when_input_is_mutiple_of_five_and_seven() {
+        assertEquals("BuzzWhizz", fizzBuzzWhizz.fizzBuzzWhizz(35));
+    }
 }
