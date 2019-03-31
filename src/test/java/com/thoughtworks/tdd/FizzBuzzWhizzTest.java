@@ -22,4 +22,9 @@ class FizzBuzzWhizzTest {
     void should_return_fizz_when_input_is_multiple_of_three() {
         assertEquals("Fizz", fizzBuzzWhizz.fizzBuzzWhizz(3));
     }
+
+    @Test
+    void should_return_buzz_when_input_is_multiple_of_five() {
+        assertEquals("Buzz", fizzBuzzWhizz.fizzBuzzWhizz(5));
+    }
 }
