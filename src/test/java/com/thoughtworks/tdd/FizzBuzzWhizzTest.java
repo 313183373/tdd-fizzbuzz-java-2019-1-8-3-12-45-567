@@ -10,7 +10,7 @@ class FizzBuzzWhizzTest {
 
     @BeforeEach
     void setUp() {
-        fizzBuzzWhizz = new FizzBuzzWhizz();
+        fizzBuzzWhizz = new FizzBuzzWhizz(new FizzBuzzWhizzChecker(), new FizzBuzzChecker(), new FizzWhizzChecker(), new BuzzWhizzChecker(), new FizzChecker(), new BuzzChecker(), new WhizzChecker());
     }
 
     @Test

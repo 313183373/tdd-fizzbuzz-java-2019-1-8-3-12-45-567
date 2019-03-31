@@ -1,27 +1,27 @@
 package com.thoughtworks.tdd;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Optional;
+
 public class FizzBuzzWhizz {
+    private ArrayList<Checker> checkers;
+
+    FizzBuzzWhizz(Checker... checkers) {
+        this.checkers = new ArrayList<>(Arrays.asList(checkers));
+    }
+
     public String fizzBuzzWhizz(int number) {
-        if (number % 105 == 0) {
-            return "FizzBuzzWhizz";
-        } else if (number % 15 == 0) {
-            return "FizzBuzz";
-        } else if (number % 21 == 0) {
-            return "FizzWhizz";
-        } else if (number % 35 == 0) {
-            return "BuzzWhizz";
-        } else if (number % 3 == 0) {
-            return "Fizz";
-        } else if (number % 5 == 0) {
-            return "Buzz";
-        } else if (number % 7 == 0) {
-            return "Whizz";
+        Optional<Checker> first = checkers.stream().filter(checker -> checker.isValid(number)).findFirst();
+        if (first.isPresent()) {
+            return first.get().value();
+        } else {
+            return String.valueOf(number);
         }
-        return String.valueOf(number);
     }
 
     public static void main(String[] args) {
-        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz(new FizzBuzzWhizzChecker(), new FizzBuzzChecker(), new FizzWhizzChecker(), new BuzzWhizzChecker(), new FizzChecker(), new BuzzChecker(), new WhizzChecker());
         for (int i = 1; i <= 120; i++) {
             System.out.println(fizzBuzzWhizz.fizzBuzzWhizz(i));
         }
